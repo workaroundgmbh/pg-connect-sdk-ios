@@ -25,6 +25,32 @@ Current dependencies that are being used in the package are:
 - OpenSSL
 - AWS iOS SDK
 
+## Integrating Into an Existing Xcode Project or Package
+
+Here are the steps to get the Connect SDK installed into either your existing Xcode Project or Package.
+### Installing the Connect SDK into your Xcode Project
+
+1. Open your project in the Xcode IDE.  From the drop down menu, select File > Add Packages...
+
+2. In the field labeled "Search or Enter Package URL", enter "https://github.com/workaroundgmbh/pg-connect-sdk-ios".  Set the
+dependency rule and project as needed, then click "Add Package". The package will download and install to your Xcode
+project.
+
+1. In the "Choose Package Products for ConnectSDK" popup window, check the box, and set the Xcode target.  Click "Add Package".
+
+### Installing the Connect SDK into your Swift Package
+
+In your package's `Package.swift`, add Connect SDK as a package dependency:
+```swift
+// swift-tools-version:5.5
+import PackageDescription
+let package = Package(
+    name: "<Your Product Name>",
+    dependencies: [
+		.package(url: "https://github.com/workaroundgmbh/pg-connect-sdk-ios", .upToNextMajor(from: "1.8.0"))
+    ],
+)
+```
 ## API Reference documentation
 
 Please use the [ProGlove Documentation](https://docs.proglove.com/en/insight-mobile--ios-.html) that is already provided for now.
