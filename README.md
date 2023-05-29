@@ -12,8 +12,7 @@ The ConnectSDK for Swift supports the following:
 - Swift 5.5 or higher
 - iOS 12 or higher
 
-Environment for watchOS is supported by this library:
-**placeholder**
+Environment for watchOS is supported by this library: [ConnectSDKWatch](https://github.com/workaroundgmbh/pg-connect-sdk-watchos)
 
 ## Dependencies
 
