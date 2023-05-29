@@ -53,5 +53,6 @@ let package = Package(
 ```
 ## API Reference documentation
 
-Please use the [ProGlove Documentation](https://docs.proglove.com/en/insight-mobile--ios-.html) that is already provided for now.
+Please use the [ProGlove Documentation](https://docs.proglove.com/en/insight-mobile--ios-.html) that is already provided.
+
 For now, DocC is not in the current scope, but hopefully in the near future it will be included.
