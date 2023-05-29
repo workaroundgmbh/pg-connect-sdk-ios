@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		01AAC1FA223956CC009961CE /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAC1F9223956CC009961CE /* AppLogger.swift */; };
 		059B177C325152BA92AAA611 /* Pods_ConnectSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C8D189DEF29A318B1A720F /* Pods_ConnectSDK_Example.framework */; };
 		0E08033F29C20E3E00DD665B /* PGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08033E29C20E3D00DD665B /* PGProgressView.swift */; };
+		0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0EB9A18E2A2553DC007C5E08 /* ConnectSDK */; };
 		1B12CCE52614691B00D62AFC /* PGWorkerFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B12CCE42614691B00D62AFC /* PGWorkerFeedback.swift */; };
 		1B22794026A6CDB300A80B26 /* PGLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22793F26A6CDB300A80B26 /* PGLogViewController.swift */; };
 		1B63FFCC25E8F9C600DAA13E /* PGDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B63FFC725E8F9C600DAA13E /* PGDisplayViewController.swift */; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */,
 				059B177C325152BA92AAA611 /* Pods_ConnectSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = "ConnectSDK Example";
+			packageProductDependencies = (
+				0EB9A18E2A2553DC007C5E08 /* ConnectSDK */,
+			);
 			productName = "ConnectSDK Example";
 			productReference = 015A305A223942AE0098EB14 /* ConnectSDK Example.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +176,9 @@
 				Base,
 			);
 			mainGroup = 015A3051223942AE0098EB14;
+			packageReferences = (
+				0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */,
+			);
 			productRefGroup = 015A305B223942AE0098EB14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -460,6 +468,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/workaroundgmbh/pg-connect-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0EB9A18E2A2553DC007C5E08 /* ConnectSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */;
+			productName = ConnectSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 015A3052223942AE0098EB14 /* Project object */;
 }
