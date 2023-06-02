@@ -9,7 +9,7 @@ import ConnectSDK
 import os.log
 import UIKit
 
-class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDelegate, PGViewControllerDelegate, PGFirmwareUpdateManagerDelegate, PGConfigurationManagerDelegate {
+class ViewController: UIViewController, PGCentralManagerDelegate, PGViewControllerDelegate, PGFirmwareUpdateManagerDelegate, PGConfigurationManagerDelegate {
 	let log = OSLog(subsystem: OSLog.appSubsystem, category: "ViewController")
 	
 	@IBOutlet var qrImageView: UIImageView!
@@ -217,17 +217,6 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
         os_log(.error, log: self.log, "Firmware update failed. Error: %{public}@", error!.localizedDescription)
     }
     
-	// MARK: - Peripheral delegate
-    
-    func peripheral(_ peripheral: PGPeripheral, didScanBarcodeWith data: PGScannedBarcodeResult) {
-        var scanResult = data.barcodeContent
-        if let symbology = data.barcodeSymbology {
-            scanResult.append(" - \(symbology)")
-        }
-        scannedBarcodes.append(scanResult)
-        pgVC?.appendBarcode(barcode: scanResult)
-    }
-    
     // MARK: - PGConfigurationManager delegate
     
     func peripheral(_ peripheral: PGPeripheral, didSetConfigurationProfile configurationProfile: PGConfigurationProfile) {
@@ -250,5 +239,33 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
 		}
 		reset()
 	}
+}
+
+// MARK: - Peripheral delegate
+extension ViewController: PGPeripheralDelegate {
+    func peripheralDidActivateDoubleTrigger(_ peripheral: PGPeripheral) {
+        os_log(.info, log: log, "Did activate double trigger")
+    }
+    
+    func peripheral(_ peripheral: PGPeripheral, didScanBarcodeWith data: PGScannedBarcodeResult) {
+        var scanResult = data.barcodeContent
+        if let symbology = data.barcodeSymbology {
+            scanResult.append(" - \(symbology)")
+        }
+        scannedBarcodes.append(scanResult)
+        pgVC?.appendBarcode(barcode: scanResult)
+    }
+    
+    func peripheralDidUpdateName(_ peripheral: PGPeripheral) {}
+    
+    func peripheralDidUpdateState(_ peripheral: PGPeripheral) {}
+    
+    func readRSSI() {}
+    
+    func peripheral(_ peripheral: PGPeripheral, didReadRSSI: NSNumber) {}
+    
+    func peripheral(_ peripheral: PGPeripheral, errorScanningBarcode: Error) {}
+    
+    func peripheralDidUpdateBatteryLevel(_ peripheral: PGPeripheral) {}
 }
 
