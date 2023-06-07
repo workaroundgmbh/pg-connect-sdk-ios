@@ -70,7 +70,7 @@ class ConfigurationViewController: UIViewController, UITableViewDelegate, UITabl
 
         os_log(.info, log: self.log, "Selected ProfileId: %{profileId}@", selectedProfile.profileId)
 
-        let command = PGCommand(data: selectedProfile, params: PGCommandParams())
+        let command = PGCommand(configurationProfileRequest: selectedProfile)
         self.configurationManager?.changeActiveProfile(command, completionHandler: { error in
             if let error = error {
                 os_log(.error, log: self.log, "Active Profile could not be set: %{error}@", error.localizedDescription)
