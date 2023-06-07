@@ -35,7 +35,7 @@ class PGWorkerFeedbackViewController: UITableViewController {
     
     func triggerFeedback(_ feedback: PGPredefinedFeedback) {
         let feedbackRequest = PGFeedbackRequest(feedback: feedback)
-        let command = PGCommand(feedbackRequest)
+        let command = PGCommand(feedbackRequest: feedbackRequest)
         centralManager?.feedbackManager?.playFeedbackSequence(withFeedbackCommand: command, completionHandler: { error in
             if let error = error {
                 print(error)

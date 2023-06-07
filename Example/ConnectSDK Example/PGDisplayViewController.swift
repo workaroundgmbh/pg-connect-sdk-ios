@@ -151,7 +151,7 @@ class PGDiplayViewController: UITableViewController {
         let screenData = PGScreenData(templateId: selectedTemplate.rawValue, templateFields: fields, refreshType: refreshType, duration: UInt32(durationMs))
         
         // Create SetScreen command
-        let command = PGCommand(screenData)
+        let command = PGCommand(screenDataRequest: screenData)
         
         // Request screen setup
         centralManager?.displayManager?.setScreen(command, completionHandler: { error in
@@ -170,7 +170,7 @@ class PGDiplayViewController: UITableViewController {
         let orientation = PGSetDisplayOrientationRequest(orientation: selectedOrientation.pgOrientationModel)
         
         // Create set display command
-        let command = PGCommand(orientation)
+        let command = PGCommand(displayOrientationRequest: orientation)
         centralManager?.displayManager?.setDisplayOrientation(command, completionHandler: { error in
             if let error = error {
                 os_log(.error, log: self.log, "Fail to set screen orientation: %{error}@", error.localizedDescription)
