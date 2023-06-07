@@ -30,7 +30,7 @@ class PGSettingsViewController: UITableViewController {
         
         /// Fetch the device information by creating PGCommand and invoking the requestDeviceInformation.
         let deviceInfoCommand = PGCommand(deviceInfoRequest: PGDeviceInformationRequest(), params: PGCommandParams())
-        centralManager?.connectedScanner?.requestDeviceInformation(deviceInfoCommand, completionHandler: { deviceInfo, error in
+        centralManager?.connectedScanner?.requestDeviceInformation(withDeviceInfoCommand: deviceInfoCommand, completionHandler: { deviceInfo, error in
             if error == nil {
                 self.deviceInformation = deviceInfo
                 self.serialNumberLabel.text = self.deviceInformation?.serialNumber
