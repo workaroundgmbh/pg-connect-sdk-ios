@@ -18,8 +18,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ConnectSDK",
-            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/1.8.0/ConnectSDK-1.8.0.xcframework.zip",
-            checksum: "3de8af8051b30b04090144f94b49bbb024b0780b5ed32e47ca511d1125a8289a"),
+            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/2.0.0/ConnectSDK-2.0.0-rc-beta.xcframework.zip",
+            checksum: "5dc7530a63ca487c5efaa5085c1bf8aa2b2958192af7232a8193d38ea2f5aeee"),
         .target(
             name: "Dependencies",
             dependencies: [
