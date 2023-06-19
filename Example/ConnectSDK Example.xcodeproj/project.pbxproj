@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		015A3068223942B00098EB14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015A3066223942B00098EB14 /* LaunchScreen.storyboard */; };
 		01AAC1ED2239459E009961CE /* PGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAC1EC2239459E009961CE /* PGViewController.swift */; };
 		01AAC1FA223956CC009961CE /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAC1F9223956CC009961CE /* AppLogger.swift */; };
-		059B177C325152BA92AAA611 /* Pods_ConnectSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C8D189DEF29A318B1A720F /* Pods_ConnectSDK_Example.framework */; };
 		0E08033F29C20E3E00DD665B /* PGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08033E29C20E3D00DD665B /* PGProgressView.swift */; };
 		0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0EB9A18E2A2553DC007C5E08 /* ConnectSDK */; };
 		1B12CCE52614691B00D62AFC /* PGWorkerFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B12CCE42614691B00D62AFC /* PGWorkerFeedback.swift */; };
@@ -60,7 +59,6 @@
 		1B63FFCB25E8F9C600DAA13E /* PGOrientationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGOrientationViewController.swift; sourceTree = "<group>"; };
 		1BBF64632587F18D0058AA0F /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		1BCB715C2579561000FAE30E /* ProGlove.proconfig */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProGlove.proconfig; sourceTree = "<group>"; };
-		61C8D189DEF29A318B1A720F /* Pods_ConnectSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */,
-				059B177C325152BA92AAA611 /* Pods_ConnectSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +118,6 @@
 		015A307C223942FB0098EB14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				61C8D189DEF29A318B1A720F /* Pods_ConnectSDK_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,12 +129,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 015A306C223942B00098EB14 /* Build configuration list for PBXNativeTarget "ConnectSDK Example" */;
 			buildPhases = (
-				37215C385C54C3CC640F123B /* [CP] Check Pods Manifest.lock */,
 				015A3056223942AE0098EB14 /* Sources */,
 				015A3057223942AE0098EB14 /* Frameworks */,
 				015A3058223942AE0098EB14 /* Resources */,
 				01AAC1EA2239434A009961CE /* CopyFiles */,
-				5E8CB71C526EB775F067139A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,48 +195,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		37215C385C54C3CC640F123B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ConnectSDK Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5E8CB71C526EB775F067139A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ConnectSDK Example/Pods-ConnectSDK Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ConnectSDK Example/Pods-ConnectSDK Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ConnectSDK Example/Pods-ConnectSDK Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		015A3056223942AE0098EB14 /* Sources */ = {
@@ -474,8 +426,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/workaroundgmbh/pg-connect-sdk-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = "beta-rc-2.0.0";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
