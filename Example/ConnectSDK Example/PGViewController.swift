@@ -17,6 +17,7 @@ protocol PGViewControllerDelegate: AnyObject {
 class PGViewController: UIViewController {
     @IBOutlet private var barcodeTextView: UITextView!
     @IBOutlet weak var progressView: PGProgressView!
+    @IBOutlet weak var insightConnectionStatus: UILabel!
     weak var delegate: PGViewControllerDelegate?
     var centralManager: PGCentralManager?
     var configurationManager: PGConfigurationManager?
@@ -36,6 +37,8 @@ class PGViewController: UIViewController {
 		}
         firmwareUpdateManager = centralManager?.firmwareUpdateManager
         firmwareUpdateManager?.delegate = self
+        
+        centralManager?.cloudConnectionDelegate = self
 	}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,6 +93,27 @@ extension PGViewController: PGFirmwareUpdateManagerDelegate {
     func didFailToUpdateFirmwareWithError(_ error: Error?) {
         DispatchQueue.main.async { [weak self] in
             self?.progressView.isHidden = true
+        }
+    }
+}
+
+extension PGViewController: PGCloudConnectionDelegate {
+    func cloudConnectionStatusDidUpdate(_ status: PGCloudConnectionStatus, error: Error?) {
+        var textStatus = ""
+        switch status {
+        case .connected:
+            textStatus = "Insight connected"
+        case .disconnected:
+            textStatus = "Insight disconnected"
+        case .connecting:
+            textStatus = "Connecting to Insight..."
+        case .error:
+            textStatus = "Error connecting to Insight. Try again."
+        @unknown default:
+            textStatus = ""
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.insightConnectionStatus.text = textStatus
         }
     }
 }
