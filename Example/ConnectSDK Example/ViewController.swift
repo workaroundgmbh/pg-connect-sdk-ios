@@ -258,9 +258,11 @@ extension ViewController: PGPeripheralDelegate {
     
     func peripheralDidUpdateName(_ peripheral: PGPeripheral) {}
     
-    func peripheralDidUpdateState(_ peripheral: PGPeripheral) {}
-    
-    func readRSSI() {}
+    func peripheralDidUpdateState(_ peripheral: PGPeripheral) {
+        if peripheral.state == .systemConnected {
+            os_log(.info, log: log, "Peripheral is Connected")
+        }
+    }
     
     func peripheral(_ peripheral: PGPeripheral, didReadRSSI: NSNumber) {}
     

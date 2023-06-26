@@ -38,6 +38,9 @@ class PGViewController: UIViewController {
         firmwareUpdateManager = centralManager?.firmwareUpdateManager
         firmwareUpdateManager?.delegate = self
         
+        if let central = centralManager, central.connectedToCloud {
+            updateInsightConnectionLabel(.connected)
+        }
         centralManager?.cloudConnectionDelegate = self
 	}
     
@@ -95,10 +98,8 @@ extension PGViewController: PGFirmwareUpdateManagerDelegate {
             self?.progressView.isHidden = true
         }
     }
-}
-
-extension PGViewController: PGCloudConnectionDelegate {
-    func cloudConnectionStatusDidUpdate(_ status: PGCloudConnectionStatus, error: Error?) {
+    
+    func updateInsightConnectionLabel(_ status: PGCloudConnectionStatus) {
         var textStatus = ""
         switch status {
         case .connected:
@@ -115,5 +116,11 @@ extension PGViewController: PGCloudConnectionDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.insightConnectionStatus.text = textStatus
         }
+    }
+}
+
+extension PGViewController: PGCloudConnectionDelegate {
+    func cloudConnectionStatusDidUpdate(_ status: PGCloudConnectionStatus, error: Error?) {
+        updateInsightConnectionLabel(status)
     }
 }
