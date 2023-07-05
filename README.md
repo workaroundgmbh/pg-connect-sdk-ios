@@ -71,4 +71,4 @@ let package = Package(
 
 Please use the [ProGlove Documentation](https://docs.proglove.com/en/insight-mobile--ios-.html) that is already provided.
 
-For now, DocC is not in the current scope, but hopefully, in the near future, it will be included.
+DocC generated API documentation might be provided at a later point in time.
