@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "ConnectSDK",
-            targets: ["ConnectSDK", "Dependencies"])
+            targets: ["ConnectSDK", "ConnectSDKDependencies"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.16.0"),
@@ -21,7 +21,7 @@ let package = Package(
             url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/2.0.0/ConnectSDK-2.0.0.xcframework.zip",
             checksum: "1ae06fecc3c053c19e1ff660995d65dc2f56d1b8102c07827a678cd20ce357b2"),
         .target(
-            name: "Dependencies",
+            name: "ConnectSDKDependencies",
             dependencies: [
                 "ZIPFoundation",
                 "OpenSSL",
