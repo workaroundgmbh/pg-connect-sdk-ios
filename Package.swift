@@ -13,18 +13,20 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.16.0"),
         .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm", from: "2.0.0"),
         .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", from: "1.0.0"),
+        .package(url: "https://github.com/unrelentingtech/SwiftCBOR.git", from: "0.4.4"),
         .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.16")
     ],
     targets: [
         .binaryTarget(
             name: "ConnectSDK",
-            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/2.0.0/ConnectSDK-2.0.0.xcframework.zip",
-            checksum: "1ae06fecc3c053c19e1ff660995d65dc2f56d1b8102c07827a678cd20ce357b2"),
+            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/2.1.0/ConnectSDK-2.1.0.xcframework.zip",
+            checksum: "1233e55c2efad431c5ffa74b5c1d773e5e31f824669e9c180bfa7709f6fef646"),
         .target(
             name: "ConnectSDKDependencies",
             dependencies: [
-                "ZIPFoundation",
                 "OpenSSL",
+                "SwiftCBOR",
+                "ZIPFoundation",
                 .target(name: "ConnectSDK"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
                 .product(name: "AWSCore", package: "aws-sdk-ios-spm"),
