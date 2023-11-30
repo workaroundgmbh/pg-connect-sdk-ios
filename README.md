@@ -23,6 +23,7 @@ Current dependencies that are being used in the package are:
 - ZipFoundation
 - OpenSSL
 - AWS iOS SDK
+- nRF Connect Device Manager
 
 ## Integrating Into an Existing Xcode Project or Package
 
@@ -72,3 +73,5 @@ let package = Package(
 Please use the [ProGlove Documentation](https://docs.proglove.com/en/insight-mobile--ios-.html) that is already provided.
 
 DocC generated API documentation might be provided at a later point in time.
+
+For any questions regarding SDK refer to the [Help Page](https://docs.proglove.com/en/faq-46207.html#need-more-help-)
