@@ -48,7 +48,7 @@ import PackageDescription
 let package = Package(
     name: "<Your Product Name>",
     dependencies: [
-		.package(url: "https://github.com/workaroundgmbh/pg-connect-sdk-ios", .upToNextMajor(from: "1.8.0"))
+		  .package(url: "https://github.com/workaroundgmbh/pg-connect-sdk-ios", .upToNextMajor(from: "1.8.0"))
     ],
 )
 ```
