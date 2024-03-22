@@ -35,7 +35,7 @@ let package = Package(
                 .product(name: "AWSCognitoIdentityProviderASF", package: "aws-sdk-ios-spm"),
                 .product(name: "AWSIoT", package: "aws-sdk-ios-spm"),
                 .product(name: "AWSMobileClientXCF", package: "aws-sdk-ios-spm")],
-                path: "Sources/ConnectSDK"
+                path: "Sources/ConnectSDKDependencies"
         )
     ]
 )
