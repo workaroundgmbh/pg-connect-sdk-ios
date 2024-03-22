@@ -10,10 +10,10 @@ let package = Package(
             targets: ["ConnectSDK", "ConnectSDKDependencies"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.16.0"),
+        .package(url: "https://github.com/apple/swift-protobuf", from: "1.16.0"),
         .package(url: "https://github.com/workaroundgmbh/aws-sdk-ios-spm", branch: "release"),
-        .package(url: "https://github.com/workaroundgmbh/OpenSSL.git", from: "1.0.0"),
-        .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.16"),
+        .package(url: "https://github.com/workaroundgmbh/OpenSSL", from: "1.0.0"),
+        .package(url: "https://github.com/weichsel/ZIPFoundation", from: "0.9.16"),
         .package(url: "https://github.com/NordicSemiconductor/IOS-nRF-Connect-Device-Manager", from: "1.6.0")
     ],
     targets: [
