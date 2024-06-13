@@ -28,6 +28,10 @@
 	<string>Bluetooth reuired in order to connect to Scanner.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location access required to send WiFi information to Insight</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location access required to send WiFi information to Insight in background</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location access required to send WiFi information to Insight in background</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

@@ -2,7 +2,6 @@
 //  ConfigTableViewController.swift
 //  ConnectSDK Example
 //
-//  Created by Nico Adler on 07.12.20.
 //  Copyright © 2020 proglove. All rights reserved.
 //
 
@@ -26,6 +25,7 @@ class ConfigurationViewController: UIViewController, UITableViewDelegate, UITabl
 
         tableView.delegate = self
         tableView.dataSource = self
+        configurationManager?.delegate = self
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backGesture))
         swipeRight.direction = .right
@@ -70,7 +70,7 @@ class ConfigurationViewController: UIViewController, UITableViewDelegate, UITabl
 
         os_log(.info, log: self.log, "Selected ProfileId: %{profileId}@", selectedProfile.profileId)
 
-        let command = PGCommand(configurationProfileRequest: selectedProfile)
+        let command = PGCommand(configurationProfileRequest: selectedProfile, params: PGCommandParams())
         self.configurationManager?.changeActiveProfile(command, completionHandler: { error in
             if let error = error {
                 os_log(.error, log: self.log, "Active Profile could not be set: %{error}@", error.localizedDescription)
@@ -139,4 +139,20 @@ class ConfigurationViewController: UIViewController, UITableViewDelegate, UITabl
             self.tableView.reloadData()
         }
     }
+}
+
+extension ConfigurationViewController: PGConfigurationManagerDelegate {
+    func didLoadNewConfiguration(_ configurationId: String) {
+        refreshDataSource()
+    }
+    
+    func didFailToLoadNewConfiguration(_ error: Error) {
+        let allertController = UIAlertController(title: "Configuration", message: "Error: \(error.localizedDescription)", preferredStyle: .alert)
+        allertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(allertController, animated: true)
+    }
+    
+    func peripheral(_ peripheral: PGPeripheral, didSetConfigurationProfile configurationProfile: PGConfigurationProfile) {}
+    
+    func peripheral(_ peripheral: PGPeripheral?, didFailToSetConfigurationProfile profile: PGConfigurationProfile?, error: Error?) {}
 }
