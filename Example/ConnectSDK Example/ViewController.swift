@@ -2,14 +2,14 @@
 //  ViewController.swift
 //  ConnectSDK Example
 //
-//  Copyright © 2019 proglove. All rights reserved.
+//  Copyright © 2019 Workaround GmbH. All rights reserved.
 //
 
 import ConnectSDK
 import os.log
 import UIKit
 
-class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDelegate, PGViewControllerDelegate, PGFirmwareUpdateManagerDelegate, PGConfigurationManagerDelegate {
+class ViewController: UIViewController, PGCentralManagerDelegate, PGViewControllerDelegate, PGFirmwareUpdateManagerDelegate, PGConfigurationManagerDelegate {
 	let log = OSLog(subsystem: OSLog.appSubsystem, category: "ViewController")
 	
 	@IBOutlet var qrImageView: UIImageView!
@@ -50,9 +50,6 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
         //Set the configuration manager delegate
         configurationManager = central.configurationManager
         configurationManager?.delegate = self
-        
-        // Set the cloud insight connection delegate
-        central.cloudConnectionDelegate = self
         
 		if let m = central.connectedScanner {
 			os_log(.info, log: log, "Scanner was already connected when view loaded")
@@ -154,7 +151,6 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
 	}
     
     func centralManager(_ centralManager: PGCentralManager, scannerDidConnect scanner: PGPeripheral) {
-        pgVC?.logCount = 1
         os_log(.info, log: log, "Scanner is now connected but still not ready for use.")
     }
     
@@ -221,17 +217,6 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
         os_log(.error, log: self.log, "Firmware update failed. Error: %{public}@", error!.localizedDescription)
     }
     
-	// MARK: - Peripheral delegate
-    
-    func peripheral(_ peripheral: PGPeripheral, didScanBarcodeWith data: PGScannedBarcodeResult) {
-        var scanResult = data.barcodeContent
-        if let symbology = data.barcodeSymbology {
-            scanResult.append(" - \(symbology)")
-        }
-        scannedBarcodes.append(scanResult)
-        pgVC?.appendBarcode(barcode: scanResult)
-    }
-    
     // MARK: - PGConfigurationManager delegate
     
     func peripheral(_ peripheral: PGPeripheral, didSetConfigurationProfile configurationProfile: PGConfigurationProfile) {
@@ -240,18 +225,6 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
     
     func peripheral(_ peripheral: PGPeripheral?, didFailToSetConfigurationProfile configurationProfile: PGConfigurationProfile?, error: Error?) {
         os_log(.info, log: log, "Failed to set configuration profile with error %{public}@", String(describing: error))
-    }
-    
-    func didLoadNewConfiguration(_ configurationId: String) {
-        let allertController = UIAlertController(title: "Configuration", message: "Successfully Loaded New Configuration with ID \(configurationId)", preferredStyle: .alert)
-        allertController.addAction(UIAlertAction(title: "OK", style: .default))
-        present(allertController, animated: true)
-    }
-    
-    func didFailToLoadNewConfiguration(_ error: Error) {
-        let allertController = UIAlertController(title: "Configuration", message: "Error: \(error.localizedDescription)", preferredStyle: .alert)
-        allertController.addAction(UIAlertAction(title: "OK", style: .default))
-        present(allertController, animated: true)
     }
     
 	// MARK: - Scanner view controller delegate
@@ -266,47 +239,35 @@ class ViewController: UIViewController, PGCentralManagerDelegate, PGPeripheralDe
 		}
 		reset()
 	}
-    
-    // MARK: - Double trigger delegate
-    func peripheral(_ peripheral: PGPeripheral, didSendButtonTriggerEvent buttonTriggerEvent: PGButtonTriggerEventType) {
-        switch buttonTriggerEvent {
-        case .doubleTrigger:
-            pgVC?.appendBarcode(barcode: "Double trigger activated")
-        @unknown default:
-            break
-        }
-    }
-    
-    func peripheral(_ peripheral: PGPeripheral, didChangeLockState lockState: PGPeripheralLockState, error: Error?) {
-        if let error {
-            pgVC?.appendBarcode(barcode: "Unlock Error: \(error.localizedDescription)")
-            return
-        }
-        switch lockState {
-        case .disabled:
-            pgVC?.appendBarcode(barcode: "Scanner locking disabled")
-        case .locked:
-            pgVC?.appendBarcode(barcode: "Scanner locked")
-        case .unlocked:
-            pgVC?.appendBarcode(barcode: "Scanner unlocked")
-        @unknown default:
-            break
-        }
-    }
-    
-    func peripheral(_ peripheral: PGPeripheral, didScanAuthenticationBarcodeWith data: PGScannedBarcodeResult, isValid: Bool) {
-        if !isValid {
-            pgVC?.appendBarcode(barcode: "Scanned invalid barcode, scanner is locked: \(data.barcodeContent) \(data.barcodeSymbology ?? "")")
-            return
-        }
-        pgVC?.appendBarcode(barcode: "Scanned valid barcode, unlocking scanner with \(data.barcodeContent) \(data.barcodeSymbology ?? "")")
-    }
 }
 
-// MARK: - Cloud Insight Connection Delegate
-extension ViewController: PGCloudConnectionDelegate {
-    func cloudConnectionStatusDidUpdate(_ status: PGCloudConnectionStatus, error: Error?) {
-        os_log(.info, log: log, "Cloud Connection status is: %{public}@", "\(status.rawValue)")
+// MARK: - Peripheral delegate
+extension ViewController: PGPeripheralDelegate {
+    func peripheralDidActivateDoubleTrigger(_ peripheral: PGPeripheral) {
+        os_log(.info, log: log, "Did activate double trigger")
     }
+    
+    func peripheral(_ peripheral: PGPeripheral, didScanBarcodeWith data: PGScannedBarcodeResult) {
+        var scanResult = data.barcodeContent
+        if let symbology = data.barcodeSymbology {
+            scanResult.append(" - \(symbology)")
+        }
+        scannedBarcodes.append(scanResult)
+        pgVC?.appendBarcode(barcode: scanResult)
+    }
+    
+    func peripheralDidUpdateName(_ peripheral: PGPeripheral) {}
+    
+    func peripheralDidUpdateState(_ peripheral: PGPeripheral) {
+        if peripheral.state == .systemConnected {
+            os_log(.info, log: log, "Peripheral is Connected")
+        }
+    }
+    
+    func peripheral(_ peripheral: PGPeripheral, didReadRSSI: NSNumber) {}
+    
+    func peripheral(_ peripheral: PGPeripheral, errorScanningBarcode: Error) {}
+    
+    func peripheralDidUpdateBatteryLevel(_ peripheral: PGPeripheral) {}
 }
 

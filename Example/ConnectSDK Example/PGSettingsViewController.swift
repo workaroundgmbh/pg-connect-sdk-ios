@@ -13,13 +13,11 @@ import UIKit
 class PGSettingsViewController: UITableViewController {
     @IBOutlet weak var serialNumberLabel: UILabel!
     @IBOutlet weak var firmwareVersionLabel: UILabel!
-    @IBOutlet weak var batteryLevelLabel: UILabel!
     var centralManager: PGCentralManager?
     private var deviceInformation: PGDeviceInformation?
     private let displaySegueId = "displaySettingsSegue"
     private let configListSegueId = "configListSegue"
     private let feedbackSegueId = "feedbackSegue"
-    private let captureImageSegueId = "captureImageSegue"
     
     // MARK: - View Controller life cycle methods
     
@@ -29,9 +27,6 @@ class PGSettingsViewController: UITableViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-        if let scanner = centralManager?.connectedScanner {
-            batteryLevelLabel.text = "\(scanner.batteryLevel) %"
-        }
         
         /// Fetch the device information by creating PGCommand and invoking the requestDeviceInformation.
         let deviceInfoCommand = PGCommand(deviceInfoRequest: PGDeviceInformationRequest(), params: PGCommandParams())
@@ -70,18 +65,9 @@ class PGSettingsViewController: UITableViewController {
         case feedbackSegueId:
             let feedbackVC = segue.destination as? PGWorkerFeedbackViewController
             feedbackVC?.centralManager = centralManager
-        
-        case captureImageSegueId:
-            let captureImageVC = segue.destination as? PGCaptureImageViewController
-            captureImageVC?.imageManager = centralManager?.imageManager
+            
         default:
             break
         }
-    }
-}
-
-extension PGSettingsViewController: PGPeripheralDelegate {
-    func peripheralDidUpdateBatteryLevel(_ peripheral: PGPeripheral) {
-        batteryLevelLabel.text = "\(peripheral.batteryLevel) %"
     }
 }
