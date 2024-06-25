@@ -2,7 +2,6 @@
 //  PGLogViewController.swift
 //  ConnectSDK Example
 //
-//  Created by Bozidar Jevic on 19/07/2021.
 //  Copyright © 2021 proglove. All rights reserved.
 //
 

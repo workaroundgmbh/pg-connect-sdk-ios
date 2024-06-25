@@ -15,7 +15,6 @@
 		01AAC1ED2239459E009961CE /* PGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAC1EC2239459E009961CE /* PGViewController.swift */; };
 		01AAC1FA223956CC009961CE /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAC1F9223956CC009961CE /* AppLogger.swift */; };
 		0E08033F29C20E3E00DD665B /* PGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08033E29C20E3D00DD665B /* PGProgressView.swift */; };
-		0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0EB9A18E2A2553DC007C5E08 /* ConnectSDK */; };
 		1B12CCE52614691B00D62AFC /* PGWorkerFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B12CCE42614691B00D62AFC /* PGWorkerFeedback.swift */; };
 		1B22794026A6CDB300A80B26 /* PGLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22793F26A6CDB300A80B26 /* PGLogViewController.swift */; };
 		1B63FFCC25E8F9C600DAA13E /* PGDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B63FFC725E8F9C600DAA13E /* PGDisplayViewController.swift */; };
@@ -25,6 +24,8 @@
 		1B63FFD025E8F9C600DAA13E /* PGOrientationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B63FFCB25E8F9C600DAA13E /* PGOrientationViewController.swift */; };
 		1BBF64642587F18D0058AA0F /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF64632587F18D0058AA0F /* ConfigurationViewController.swift */; };
 		1BCB715D2579561000FAE30E /* ProGlove.proconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1BCB715C2579561000FAE30E /* ProGlove.proconfig */; };
+		ECA3FB022C1B005C008F0616 /* PGCaptureImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3FB012C1B005C008F0616 /* PGCaptureImageViewController.swift */; };
+		ECA3FB0A2C1B06A9008F0616 /* ConnectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = ECA3FB092C1B06A9008F0616 /* ConnectSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 		1B63FFCB25E8F9C600DAA13E /* PGOrientationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGOrientationViewController.swift; sourceTree = "<group>"; };
 		1BBF64632587F18D0058AA0F /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		1BCB715C2579561000FAE30E /* ProGlove.proconfig */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProGlove.proconfig; sourceTree = "<group>"; };
+		ECA3FB012C1B005C008F0616 /* PGCaptureImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGCaptureImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EB9A18F2A2553DC007C5E08 /* ConnectSDK in Frameworks */,
+				ECA3FB0A2C1B06A9008F0616 /* ConnectSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 				1B63FFC925E8F9C600DAA13E /* PGTemplatesViewController.swift */,
 				1B12CCE42614691B00D62AFC /* PGWorkerFeedback.swift */,
 				1B22793F26A6CDB300A80B26 /* PGLogViewController.swift */,
+				ECA3FB012C1B005C008F0616 /* PGCaptureImageViewController.swift */,
 				01AAC1F9223956CC009961CE /* AppLogger.swift */,
 				015A3061223942AE0098EB14 /* Main.storyboard */,
 				015A3064223942B00098EB14 /* Assets.xcassets */,
@@ -140,7 +143,7 @@
 			);
 			name = "ConnectSDK Example";
 			packageProductDependencies = (
-				0EB9A18E2A2553DC007C5E08 /* ConnectSDK */,
+				ECA3FB092C1B06A9008F0616 /* ConnectSDK */,
 			);
 			productName = "ConnectSDK Example";
 			productReference = 015A305A223942AE0098EB14 /* ConnectSDK Example.app */;
@@ -152,8 +155,9 @@
 		015A3052223942AE0098EB14 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = proglove;
 				TargetAttributes = {
 					015A3059223942AE0098EB14 = {
@@ -171,7 +175,7 @@
 			);
 			mainGroup = 015A3051223942AE0098EB14;
 			packageReferences = (
-				0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */,
+				ECA3FB062C1B04CC008F0616 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */,
 			);
 			productRefGroup = 015A305B223942AE0098EB14 /* Products */;
 			projectDirPath = "";
@@ -211,6 +215,7 @@
 				1BBF64642587F18D0058AA0F /* ConfigurationViewController.swift in Sources */,
 				0E08033F29C20E3E00DD665B /* PGProgressView.swift in Sources */,
 				1B63FFCD25E8F9C600DAA13E /* PGSettingsViewController.swift in Sources */,
+				ECA3FB022C1B005C008F0616 /* PGCaptureImageViewController.swift in Sources */,
 				1B63FFCC25E8F9C600DAA13E /* PGDisplayViewController.swift in Sources */,
 				01AAC1FA223956CC009961CE /* AppLogger.swift in Sources */,
 				1B63FFCE25E8F9C600DAA13E /* PGTemplatesViewController.swift in Sources */,
@@ -277,6 +282,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -339,6 +345,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -422,20 +429,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */ = {
+		ECA3FB062C1B04CC008F0616 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/workaroundgmbh/pg-connect-sdk-ios";
 			requirement = {
-				branch = "beta-rc-2.0.0";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0EB9A18E2A2553DC007C5E08 /* ConnectSDK */ = {
+		ECA3FB092C1B06A9008F0616 /* ConnectSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0EB9A18D2A2553DC007C5E08 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */;
+			package = ECA3FB062C1B04CC008F0616 /* XCRemoteSwiftPackageReference "pg-connect-sdk-ios" */;
 			productName = ConnectSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
