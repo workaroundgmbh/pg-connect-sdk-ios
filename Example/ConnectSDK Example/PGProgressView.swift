@@ -2,7 +2,6 @@
 //  PGFirmwareUpdateProgressViewController.swift
 //  ConnectSDK Example
 //
-//  Created by Vlastimir Radojevic on 3/13/23.
 //  Copyright © 2023 proglove. All rights reserved.
 //
 
