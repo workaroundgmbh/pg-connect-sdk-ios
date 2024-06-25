@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ConnectSDK Example
 //
-//  Copyright © 2019 proglove. All rights reserved.
+//  Copyright © 2019 Workaround GmbH. All rights reserved.
 //
 
 import UIKit
