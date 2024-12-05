@@ -20,7 +20,7 @@ let package = Package(
         .binaryTarget(
             name: "ConnectSDK",
             url: "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-2.6.0.xcframework/versions/2.6.0/ConnectSDK-2.6.0.xcframework.zip?accept_eula=8",
-            checksum: "1ed5168e0560133e98b806d8c054bf0779bb9e4e67bdac1ef53805dac38a7537"),
+            checksum: "2b06983f2f4e7ab6b824c8c1e36a90f5e4f3ec57c40e691fa2e1ddd1664c9452"),
         .target(
             name: "ConnectSDKDependencies",
             dependencies: [

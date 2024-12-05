@@ -12,8 +12,8 @@ Connect SDK allows you to easily add support for the barcode scanner to your App
   s.swift_version = "5.0"
   s.frameworks = 'CoreBluetooth'
 
-  s.source = { :http => "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-2.6.0-cocoapods/versions/2.6.0/ConnectSDK-2.6.0-cocoapods.zip?accept_eula=8", 
-               :sha256 => "b6983493f28828a580c9236966a7f4bbf9b268517516e9a34cd8bfca794993e4",
+  s.source = { :http => "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-2.6.0-cocoapods/versions/2.6.0/ConnectSDK-2.6.0-cocoapods.zip?accept_eula=8",
+               :sha256 => "2b06983f2f4e7ab6b824c8c1e36a90f5e4f3ec57c40e691fa2e1ddd1664c9452",
                :type => "zip" }
 
   s.dependency 'iOSMcuManagerLibrary', '~> 1.6.0'
