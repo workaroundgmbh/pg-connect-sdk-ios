@@ -10,7 +10,8 @@ The **ProGlove ConnectSDK** is a Swift SDK used to communicate with the ProGlove
 
 The ConnectSDK for Swift supports the following:
 - Swift 5.5 or higher
-- iOS 12 or higher
+- iOS 12 or higher (<= v2.5.0)
+- iOS 13 or higher (>= v2.6.0)
 
 The environment for watchOS is supported by this library: [ConnectSDKWatch](https://github.com/workaroundgmbh/pg-connect-sdk-watchos)
 
