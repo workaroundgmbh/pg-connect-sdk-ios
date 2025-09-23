@@ -1,6 +1,9 @@
+sdkVersion = "2.7.1"
+sdkSha256 = "ab4759a62cfdb3b13000e42b5cf6e241f9dbf79d65a7cb8d591afb48a399de92"
+
 Pod::Spec.new do |s|
   s.name         = "ProGloveConnectSDK"
-  s.version      = "2.6.0"
+  s.version      = sdkVersion
   s.summary      = "Connect SDK allows you to easily add support for the barcode scanner to your App"
   s.description  = <<-DESC
 Connect SDK allows you to easily add support for the barcode scanner to your App!
@@ -12,8 +15,8 @@ Connect SDK allows you to easily add support for the barcode scanner to your App
   s.swift_version = "5.0"
   s.frameworks = 'CoreBluetooth'
 
-  s.source = { :http => "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-2.6.0-cocoapods/versions/2.6.0/ConnectSDK-2.6.0-cocoapods.zip?accept_eula=8",
-               :sha256 => "e9585bbe9d7aa69923c16a83ba50c147ba7e4bfa5a1678449dc26e69d7b244b8",
+  s.source = { :http => "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-#{sdkVersion}-cocoapods/versions/#{sdkVersion}/ConnectSDK-#{sdkVersion}-cocoapods.zip?accept_eula=8",
+               :sha256 => sdkSha256,
                :type => "zip" }
 
   s.dependency 'iOSMcuManagerLibrary', '~> 1.6.0'

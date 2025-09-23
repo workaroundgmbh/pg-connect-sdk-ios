@@ -1,6 +1,9 @@
 // swift-tools-version: 5.5
 import PackageDescription
 
+let version = "2.7.1"
+let checksum = "4de929f8da5db20c38a03220a7a2331116976af42e5a5209af887c5e99eb27ee"
+
 let package = Package(
     name: "ConnectSDK",
     platforms: [.iOS(.v13)],
@@ -19,8 +22,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ConnectSDK",
-            url: "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-2.6.0.xcframework/versions/2.6.0/ConnectSDK-2.6.0.xcframework.zip?accept_eula=8",
-            checksum: "2b06983f2f4e7ab6b824c8c1e36a90f5e4f3ec57c40e691fa2e1ddd1664c9452"),
+            url: "https://dl.cloudsmith.io/QQ43WPa2Y7VlFUM3/proglove/markconnectiossdk-prod/raw/names/ConnectSDK-\(version).xcframework/versions/\(version)/ConnectSDK-\(version).xcframework.zip?accept_eula=8",
+            checksum: checksum),
         .target(
             name: "ConnectSDKDependencies",
             dependencies: [
