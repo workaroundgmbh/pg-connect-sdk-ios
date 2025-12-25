@@ -1,8 +1,8 @@
 // swift-tools-version: 5.5
 import PackageDescription
 
-let version = "2.7.2"
-let checksum = "7a773ffc98436849d416c81c6a555605161fc36376d77299c5e44b98d58cdc33"
+let version = "2.8.0"
+let checksum = "516b9879ca050393dd1733f36ea1214fe4d198b05ab552d6bc6bc37bd9f2d38e"
 
 let package = Package(
     name: "ConnectSDK",
@@ -13,7 +13,7 @@ let package = Package(
             targets: ["ConnectSDK", "ConnectSDKDependencies"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.26.0"),
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.33.0"),
         .package(url: "https://github.com/workaroundgmbh/aws-sdk-ios-spm", from: "2.36.2"),
         .package(url: "https://github.com/workaroundgmbh/OpenSSL.git", from: "1.1.4"),
         .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.19"),
