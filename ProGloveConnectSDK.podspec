@@ -1,5 +1,5 @@
-sdkVersion = "2.8.0"
-sdkSha256 = "b7977c0fbc580cf45fd1ea9f2a565e564ceef2ccb3c7fd1368b7582b06099613"
+sdkVersion = "2.9.0"
+sdkSha256 = "68aaee5e6e1e9474db55b48557c110cc7e2d7ab560cf5a1842893d9c870edc94"
 
 Pod::Spec.new do |s|
   s.name         = "ProGloveConnectSDK"
